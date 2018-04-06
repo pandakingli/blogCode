@@ -6,8 +6,8 @@ use_frameworks!
 target "YogaKitDemo" do
 
 
-pod 'Yoga', '~> 1.5.0'
+pod 'Yoga', '~> 1.6.0'
 
-pod 'YogaKit' , '~> 1.5.0'
+pod 'YogaKit' 
 
 end
