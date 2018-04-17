@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  loopViewByUICollectionView
 //
-//  Created by didi on 2018/4/16.
+//  Created by biubiublue on 2018/4/16.
 //  Copyright © 2018年 lining. All rights reserved.
 //
 
