@@ -23,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self.view addSubview:self.collectionview];
     [self.view addSubview:self.pageControl];
     
