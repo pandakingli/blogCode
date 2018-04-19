@@ -47,7 +47,8 @@
     [self doviews];
 }
 
--(void)doviews{
+-(void)doviews
+{
     CGFloat x,y,w,h;
     x = 10;
     y = 0;
