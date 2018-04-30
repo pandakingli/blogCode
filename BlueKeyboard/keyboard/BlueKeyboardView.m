@@ -9,6 +9,7 @@
 #import "BlueKeyboardView.h"
 #import "BlueKeyboardCell.h"
 #import "BlueKeyboardManager.h"
+#import "BlueKeyboardModel.h"
 
 @interface BlueKeyboardView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -25,7 +26,8 @@
 
 @property (nonatomic,copy)  BlueKeyboardCallBackBlcok callBackBlock;
 
-
+@property(nonatomic,assign) NSInteger currentKeyboardIndex;
+@property(nonatomic,strong) NSMutableArray<BlueKeyboardModel*> *keyboardsArray;
 @end
 
 @implementation BlueKeyboardView
@@ -49,8 +51,15 @@
     return self;
 }
 
+-(void)setupData
+{
+    BlueKeyboardModel *model = [[BlueKeyboardModel alloc]init];
+    [self.keyboardsArray addObject:model];
+}
+
 -(void)setupInitialViews
 {
+    [self setupData];
     CGFloat x,y,w,h;
     x = 0;
     y = 0;
@@ -61,6 +70,15 @@
     self.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.keyboardHeaderView];
     [self addSubview:self.keyCView];
+}
+
+-(NSMutableArray<BlueKeyboardModel*>*)keyboardsArray
+{
+    if (!_keyboardsArray)
+    {
+        _keyboardsArray = [NSMutableArray arrayWithCapacity:3];
+    }
+    return _keyboardsArray;
 }
 
 -(UIView*)keyboardHeaderView
@@ -166,7 +184,7 @@
         _keyCView.pagingEnabled = YES;
         _keyCView.decelerationRate = 0;
         _keyCView.showsHorizontalScrollIndicator = NO;
-        _keyCView.backgroundColor = [UIColor whiteColor];
+        _keyCView.backgroundColor = [UIColor orangeColor];
         _keyCView.delaysContentTouches = false;
         _keyCView.clipsToBounds = NO;
         
@@ -175,43 +193,79 @@
     return _keyCView;
 }
 
+-(BlueKeyboardModel*)getCurrentKeyboard
+{
+    BlueKeyboardModel *kmodel = nil;
+    NSInteger index = self.currentKeyboardIndex;
+    
+    if (index<self.keyboardsArray.count)
+    {
+        kmodel = [self.keyboardsArray objectAtIndex:index];
+    }
+    return kmodel;
+}
+
 #pragma mark-- UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSInteger num =  [self.keyboardManager collectionView:collectionView numberOfItemsInSection:section];
+    NSInteger num = 0;
+    
+    num = [[self getCurrentKeyboard] collectionView:collectionView numberOfItemsInSection:section];
+  
     return num;
+    
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSInteger num =  [self.keyboardManager numberOfSectionsInCollectionView:collectionView];
+    NSInteger num = 0;
+    
+       num =  [[self getCurrentKeyboard] numberOfSectionsInCollectionView:collectionView];
+    
     return num;
 }
 
 - ( UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    BlueKeyboardCell*cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier_BlueKeyboardCell forIndexPath:indexPath];
+
+    [[self getCurrentKeyboard] setupWithCell:cell adnIndexPath:indexPath adnCollectionView:collectionView];
+    
+    return cell;
 }
 
-
+#pragma mark-- UICollectionViewDelegateFlowLayout
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return kValue(8);
+ 
+    CGFloat space = 0.0f;
+    
+    space = [[self getCurrentKeyboard] collectionView:collectionView layout:collectionViewLayout minimumLineSpacingForSectionAtIndex:section];
+    
+    return space;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return kValue(5-0.5f);
+    CGFloat space = 0.0f;
+    
+    space = [[self getCurrentKeyboard] collectionView:collectionView layout:collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
+    
+    return space;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return  CGSizeMake(kBLUE_SCREEN_WIDTH, kValue(5));
+    CGSize size = CGSizeZero;
+    
+    size = [[self getCurrentKeyboard] collectionView:collectionView layout:collectionViewLayout referenceSizeForFooterInSection:section];
+            
+    return  size;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGSize size = [self.keyboardManager collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
+    CGSize size = [[self getCurrentKeyboard] collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
     return size;
 }
 

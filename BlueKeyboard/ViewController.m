@@ -7,22 +7,39 @@
 //
 
 #import "ViewController.h"
+#import "BlueKeyboardView.h"
 
-@interface ViewController ()
-
+@interface ViewController ()<UITextFieldDelegate>
+@property(nonatomic,strong) UITextField *textField;
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    CGFloat x,y,w,h;
+    
+    x = 10;
+    y = 100;
+    w = 150;
+    h = 20;
+    CGRect r_rect = (CGRect){x,y,w,h};
+    self.textField.frame = r_rect;
+    [self.view addSubview:self.textField];
+    BlueKeyboardView *blueView = [[BlueKeyboardView alloc]init];
+    self.textField.inputView = blueView;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(UITextField*)textField
+{
+    if (!_textField)
+    {
+        _textField = [[UITextField alloc]init];
+        _textField.placeholder = @"请输入文字";
+        _textField.delegate = self;
+    }
+    return _textField;
 }
 
 
