@@ -60,6 +60,7 @@
 -(void)setupInitialViews
 {
     [self setupData];
+    
     CGFloat x,y,w,h;
     x = 0;
     y = 0;
@@ -93,7 +94,7 @@
         h = kValue(52);
         CGRect r_rect = (CGRect){x,y,w,h};
         _keyboardHeaderView.frame = r_rect;
-        _keyboardHeaderView.backgroundColor = [UIColor whiteColor];
+        _keyboardHeaderView.backgroundColor = [UIColor grayColor];
         [_keyboardHeaderView addSubview:self.kButton];
         [_keyboardHeaderView addSubview:self.kHeadeLabel];
     }
@@ -109,12 +110,15 @@
         CGFloat x,y,w,h;
         x = kValue(20);
         y = kValue(14);
-        w = kValue(24);
+        w = kValue(50);
         h = kValue(24);
         CGRect r_rect = (CGRect){x,y,w,h};
         _kButton.frame = r_rect;
-        //[_kButton setBackgroundImage:nil forState:UIControlStateNormal];
+        [_kButton setTitle:@"取消" forState:UIControlStateNormal];
+        [_kButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_kButton addTarget:self action:@selector(didClickXbutton) forControlEvents:UIControlEventTouchUpInside];
+        [_kButton setBackgroundColor:[UIColor orangeColor]];
+        _kButton.layer.cornerRadius = 4;
     }
     
     
@@ -138,13 +142,14 @@
     {
         _kHeadeLabel = [[UILabel alloc]init];
         CGFloat x,y,w,h;
-        x = kValue(54);
+        x = kValue(90);
         y = kValue(18);
-        w = kValue(252);
+        w = kValue(180);
         h = kValue(16);
         CGRect r_rect = (CGRect){x,y,w,h};
         _kHeadeLabel.frame = r_rect;
-        _kHeadeLabel.text =@"请输入";
+        _kHeadeLabel.backgroundColor = [UIColor orangeColor];
+        _kHeadeLabel.text =@"键盘标题";
         _kHeadeLabel.textAlignment = NSTextAlignmentCenter;
     }
     
