@@ -18,8 +18,10 @@ CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].si
 
 #define kDSLSaveTwoPoints(k)  (roundf((k*100.0f))/100.0f)
 
-#define kRatio                kDSLSaveTwoPoints(kBLUE_SCREEN_WIDTH/360.0f)
-#define kValue(k)             (kRatio*k)
+#define kAllSlices 100.0f
+
+#define kRatio                kDSLSaveTwoPoints(kBLUE_SCREEN_WIDTH/kAllSlices)
+#define kValue(k)             (kRatio*(k))
 #define kReuseIdentifier_BlueKeyboardCell @"BlueKeyboardCell"
 
 #define kDSLCarKeyBoardControllorProvinceArr @[@10,@10,@10,@7]
@@ -52,7 +54,8 @@ typedef NS_ENUM(NSInteger, BlueKeyButtonType)
     BlueKeyButtonType_Normal = 0,//一般按钮
     BlueKeyButtonType_Change = 1,//切换按钮
     BlueKeyButtonType_Delete = 2,//删除按钮
-    BlueKeyButtonType_Empty = 3//占位按钮 透明
+    BlueKeyButtonType_Cap    = 3,//大小写切换按钮
+    BlueKeyButtonType_Empty  = 4//占位按钮 透明
 };
 
 typedef void(^BlueKeyboardCallBackBlcok) (NSString *text,BlueKeyButtonType btnType);

@@ -13,21 +13,19 @@
 
 @interface BlueKeyboardView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
-@property(nonatomic,assign) BlueKeyboardType keyboardType;
+@property(nonatomic,assign) BlueKeyboardType keyboardType;//键盘类型
+@property(nonatomic,strong) UICollectionView *kCView;//键盘按钮列表
+@property (nonatomic,copy)  BlueKeyboardCallBackBlcok callBackBlock;//回调
 
-@property(nonatomic,strong) UICollectionView *keyCView;
+@property(nonatomic,assign) NSInteger currentKeyboardIndex;//当前键盘
+@property(nonatomic,strong) NSMutableArray<BlueKeyboardModel*> *keyboardsArray;//键盘数据数组
 
-@property(nonatomic,strong) BlueKeyboardManager *keyboardManager;
+@property(nonatomic,strong) UIView     *kHeaderView;
+@property(nonatomic,strong) UILabel    *kNameLabel;
+@property(nonatomic,strong) UIButton   *kLeftBtn;//左侧切换键盘按钮
+@property(nonatomic,strong) UIButton   *kRightBtn;//右侧确认按钮
+@property(nonatomic,strong) UITableView *kBoardList;//键盘列表
 
-@property(nonatomic,strong) UIView *keyboardHeaderView;
-@property(nonatomic,strong) UILabel *kHeadeLabel;
-@property(nonatomic,strong) UIButton *kButton;
-
-
-@property (nonatomic,copy)  BlueKeyboardCallBackBlcok callBackBlock;
-
-@property(nonatomic,assign) NSInteger currentKeyboardIndex;
-@property(nonatomic,strong) NSMutableArray<BlueKeyboardModel*> *keyboardsArray;
 @end
 
 @implementation BlueKeyboardView
@@ -35,7 +33,7 @@
 {
     if (self = [super initWithFrame:frame])
     {
-        [self setupInitialViews];
+        [self goMyInit];
     }
     
     return self;
@@ -45,10 +43,17 @@
 {
     if (self = [super init])
     {
-        [self setupInitialViews];
+        [self goMyInit];
     }
     
     return self;
+}
+
+-(void)goMyInit
+{
+    [self setupData];//设置默认数据
+    [self setupInitialViews];
+    
 }
 
 -(void)setupData
@@ -59,18 +64,17 @@
 
 -(void)setupInitialViews
 {
-    [self setupData];
     
     CGFloat x,y,w,h;
     x = 0;
     y = 0;
     w = kBLUE_SCREEN_WIDTH;
-    h = IS_BLUE_IPHONE_X?kValue(240+34):kValue(240);
+    h = IS_BLUE_IPHONE_X?kValue(10+3+43+3+34):kValue(10+3+43+3);
     CGRect r_rect = (CGRect){x,y,w,h};
     self.frame = r_rect;
     self.backgroundColor = [UIColor whiteColor];
-    [self addSubview:self.keyboardHeaderView];
-    [self addSubview:self.keyCView];
+    [self addSubview:self.kHeaderView];
+    [self addSubview:self.kCView];
 }
 
 -(NSMutableArray<BlueKeyboardModel*>*)keyboardsArray
@@ -82,120 +86,137 @@
     return _keyboardsArray;
 }
 
--(UIView*)keyboardHeaderView
+-(UIView*)kHeaderView
 {
-    if (!_keyboardHeaderView)
+    if (!_kHeaderView)
     {
-        _keyboardHeaderView = [[UIView alloc]init];
+        _kHeaderView = [[UIView alloc]init];
         CGFloat x,y,w,h;
         x = 0;
         y = 0;
         w = kBLUE_SCREEN_WIDTH;
-        h = kValue(52);
+        h = kValue(10);
         CGRect r_rect = (CGRect){x,y,w,h};
-        _keyboardHeaderView.frame = r_rect;
-        _keyboardHeaderView.backgroundColor = [UIColor grayColor];
-        [_keyboardHeaderView addSubview:self.kButton];
-        [_keyboardHeaderView addSubview:self.kHeadeLabel];
+        _kHeaderView.frame = r_rect;
+        _kHeaderView.backgroundColor = [UIColor grayColor];
+        [_kHeaderView addSubview:self.kLeftBtn];
+        [_kHeaderView addSubview:self.kNameLabel];
+        [_kHeaderView addSubview:self.kRightBtn];
     }
     
-    return _keyboardHeaderView;
+    return _kHeaderView;
 }
 
--(UIButton*)kButton
+-(UIButton*)kLeftBtn
 {
-    if (!_kButton)
+    if (!_kLeftBtn)
     {
-        _kButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _kLeftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         CGFloat x,y,w,h;
-        x = kValue(20);
-        y = kValue(14);
-        w = kValue(50);
-        h = kValue(24);
+        x = kValue(4);
+        y = kValue(1);
+        w = kValue(8);
+        h = kValue(8);
         CGRect r_rect = (CGRect){x,y,w,h};
-        _kButton.frame = r_rect;
-        [_kButton setTitle:@"取消" forState:UIControlStateNormal];
-        [_kButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_kButton addTarget:self action:@selector(didClickXbutton) forControlEvents:UIControlEventTouchUpInside];
-        [_kButton setBackgroundColor:[UIColor orangeColor]];
-        _kButton.layer.cornerRadius = 4;
+        _kLeftBtn.frame = r_rect;
+        UIImage *img = [UIImage imageNamed:@"kBlueMore"];
+        [_kLeftBtn setImage:img forState:UIControlStateNormal];
+        [_kLeftBtn addTarget:self action:@selector(didClickLeftBtn) forControlEvents:UIControlEventTouchUpInside];
+       
     }
     
     
-    return _kButton;
+    return _kLeftBtn;
 }
 
--(void)didClickXbutton
+-(void)didClickLeftBtn
 {
-    NSLog(@"click X button");
+    NSLog(@"didClickLeftBtn");
+    
+}
+
+-(UIButton*)kRightBtn
+{
+    if (!_kRightBtn)
+    {
+        _kRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        CGFloat x,y,w,h;
+        x = kValue(88);
+        y = kValue(1);
+        w = kValue(8);
+        h = kValue(8);
+        CGRect r_rect = (CGRect){x,y,w,h};
+        _kRightBtn.frame = r_rect;
+        UIImage *img = [UIImage imageNamed:@"kBlueOK"];
+        [_kRightBtn setImage:img forState:UIControlStateNormal];
+        [_kRightBtn addTarget:self action:@selector(didClickRightBtn) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    
+    return _kRightBtn;
+}
+
+-(void)didClickRightBtn
+{
+    NSLog(@"didClickRightBtn");
     if (self.superview)
     {
-        
         [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     }
     
 }
 
--(UILabel*)kHeadeLabel
+-(UILabel*)kNameLabel
 {
-    if (!_kHeadeLabel)
+    if (!_kNameLabel)
     {
-        _kHeadeLabel = [[UILabel alloc]init];
+        _kNameLabel = [[UILabel alloc]init];
         CGFloat x,y,w,h;
-        x = kValue(90);
-        y = kValue(18);
-        w = kValue(180);
-        h = kValue(16);
+        x = kValue(16);
+        y = kValue(2);
+        w = kValue(68);
+        h = kValue(6);
         CGRect r_rect = (CGRect){x,y,w,h};
-        _kHeadeLabel.frame = r_rect;
-        _kHeadeLabel.backgroundColor = [UIColor orangeColor];
-        _kHeadeLabel.text =@"键盘标题";
-        _kHeadeLabel.textAlignment = NSTextAlignmentCenter;
+        _kNameLabel.frame = r_rect;
+        _kNameLabel.backgroundColor = [UIColor whiteColor];
+        _kNameLabel.text =@"键盘标题";
+        _kNameLabel.textAlignment = NSTextAlignmentCenter;
     }
     
-    return _kHeadeLabel;
+    return _kNameLabel;
 }
 
--(BlueKeyboardManager*)keyboardManager
+-(UICollectionView*)kCView
 {
-    if (!_keyboardManager)
-    {
-        _keyboardManager = [[BlueKeyboardManager alloc]init];
-    }
-    return _keyboardManager;
-}
-
--(UICollectionView*)keyCView
-{
-    if (!_keyCView)
+    if (!_kCView)
     {
         CGFloat x,y,w,h;
         x = 0;
-        y = CGRectGetMaxY(self.keyboardHeaderView.frame)+kValue(10);
+        y = CGRectGetMaxY(self.kHeaderView.frame)+kValue(3);
         w = kBLUE_SCREEN_WIDTH;
-        h = kValue(198);
+        h = kValue(43+3);
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        layout.itemSize = CGSizeMake(kValue(30), kValue(38));
+        layout.itemSize = CGSizeMake(kValue(7.8), kValue(7));
         
         CGRect r_rect = (CGRect){0,y,kBLUE_SCREEN_WIDTH,h};
         
-        _keyCView =[[UICollectionView alloc]initWithFrame:r_rect collectionViewLayout:layout];
-        _keyCView.dataSource = self;
-        _keyCView.delegate = self;
-        _keyCView.contentInset = UIEdgeInsetsMake(0, kValue(8), 0, kValue(7));
-        [_keyCView registerClass:[BlueKeyboardCell class] forCellWithReuseIdentifier:kReuseIdentifier_BlueKeyboardCell];
-        _keyCView.pagingEnabled = YES;
-        _keyCView.decelerationRate = 0;
-        _keyCView.showsHorizontalScrollIndicator = NO;
-        _keyCView.backgroundColor = [UIColor orangeColor];
-        _keyCView.delaysContentTouches = false;
-        _keyCView.clipsToBounds = NO;
+        _kCView =[[UICollectionView alloc]initWithFrame:r_rect collectionViewLayout:layout];
+        _kCView.dataSource = self;
+        _kCView.delegate = self;
+        _kCView.contentInset = UIEdgeInsetsMake(0, kValue(2), 0, kValue(2));
+        [_kCView registerClass:[BlueKeyboardCell class] forCellWithReuseIdentifier:kReuseIdentifier_BlueKeyboardCell];
+        _kCView.pagingEnabled = YES;
+        _kCView.decelerationRate = 0;
+        _kCView.showsHorizontalScrollIndicator = NO;
+        _kCView.backgroundColor = [UIColor orangeColor];
+        _kCView.delaysContentTouches = false;
+        _kCView.clipsToBounds = NO;
         
     }
     
-    return _keyCView;
+    return _kCView;
 }
 
 -(BlueKeyboardModel*)getCurrentKeyboard

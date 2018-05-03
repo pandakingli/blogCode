@@ -8,6 +8,7 @@
 
 #import "BlueKeyboardModel.h"
 #import "BlueKeyboardCell.h"
+#import "BlueKMView.h"
 
 @interface BlueKeyboardModel()
 
@@ -37,27 +38,31 @@
 
 - (void)setupWithCell:(BlueKeyboardCell*)cell adnIndexPath:(NSIndexPath *)indexPath adnCollectionView:(UICollectionView *)collectionView
 {
-    cell.contentView.backgroundColor = [UIColor redColor];
+    cell.contentView.backgroundColor = [UIColor grayColor];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(kValue(30), kValue(38));
+    return CGSizeMake(kValue(7.8), kValue(7));
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return kValue(8);
+    return kValue(2);
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return kValue(5-0.5f);
+    return kValue(2-0.5f);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return  CGSizeMake(kBLUE_SCREEN_WIDTH, kValue(5));
+    return  CGSizeMake(kBLUE_SCREEN_WIDTH, kValue(2));
 }
 
+-(NSString*)getShowStringByIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
 @end

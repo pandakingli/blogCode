@@ -17,6 +17,9 @@
 		0AC1EDA1208B3476001EEFE4 /* BlueKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1EDA0208B3476001EEFE4 /* BlueKeyboardManager.m */; };
 		0AC1EDA4208B34FD001EEFE4 /* BlueKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1EDA3208B34FD001EEFE4 /* BlueKeyboardView.m */; };
 		0AC1EDA7208B37FF001EEFE4 /* BlueKeyboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1EDA6208B37FF001EEFE4 /* BlueKeyboardCell.m */; };
+		0ADAEC222099729B00B6F69F /* kBlueMore.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADAEC202099729B00B6F69F /* kBlueMore.png */; };
+		0ADAEC242099BDD000B6F69F /* kBlueOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADAEC232099BDD000B6F69F /* kBlueOK.png */; };
+		0ADAEC272099E97B00B6F69F /* BlueKMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADAEC262099E97B00B6F69F /* BlueKMView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,10 @@
 		0AC1EDA3208B34FD001EEFE4 /* BlueKeyboardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueKeyboardView.m; sourceTree = "<group>"; };
 		0AC1EDA5208B37FF001EEFE4 /* BlueKeyboardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueKeyboardCell.h; sourceTree = "<group>"; };
 		0AC1EDA6208B37FF001EEFE4 /* BlueKeyboardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueKeyboardCell.m; sourceTree = "<group>"; };
+		0ADAEC202099729B00B6F69F /* kBlueMore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kBlueMore.png; sourceTree = "<group>"; };
+		0ADAEC232099BDD000B6F69F /* kBlueOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kBlueOK.png; sourceTree = "<group>"; };
+		0ADAEC252099E97B00B6F69F /* BlueKMView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueKMView.h; sourceTree = "<group>"; };
+		0ADAEC262099E97B00B6F69F /* BlueKMView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueKMView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +95,7 @@
 		0AC1ED9D208B3131001EEFE4 /* keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				0ADAEC1E2099728B00B6F69F /* ICON */,
 				0AC1ED9E208B31BA001EEFE4 /* BlueKeyboardConst.h */,
 				0AC1ED9F208B3476001EEFE4 /* BlueKeyboardManager.h */,
 				0AC1EDA0208B3476001EEFE4 /* BlueKeyboardManager.m */,
@@ -97,8 +105,19 @@
 				0AC1EDA6208B37FF001EEFE4 /* BlueKeyboardCell.m */,
 				0AC12E2520954AD90043D9CA /* BlueKeyboardModel.h */,
 				0AC12E2620954AD90043D9CA /* BlueKeyboardModel.m */,
+				0ADAEC252099E97B00B6F69F /* BlueKMView.h */,
+				0ADAEC262099E97B00B6F69F /* BlueKMView.m */,
 			);
 			path = keyboard;
+			sourceTree = "<group>";
+		};
+		0ADAEC1E2099728B00B6F69F /* ICON */ = {
+			isa = PBXGroup;
+			children = (
+				0ADAEC232099BDD000B6F69F /* kBlueOK.png */,
+				0ADAEC202099729B00B6F69F /* kBlueMore.png */,
+			);
+			path = ICON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +178,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC1ED94208B312B001EEFE4 /* LaunchScreen.storyboard in Resources */,
+				0ADAEC242099BDD000B6F69F /* kBlueOK.png in Resources */,
 				0AC1ED91208B312B001EEFE4 /* Assets.xcassets in Resources */,
+				0ADAEC222099729B00B6F69F /* kBlueMore.png in Resources */,
 				0AC1ED8F208B312A001EEFE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +194,7 @@
 			files = (
 				0AC1EDA7208B37FF001EEFE4 /* BlueKeyboardCell.m in Sources */,
 				0AC1EDA4208B34FD001EEFE4 /* BlueKeyboardView.m in Sources */,
+				0ADAEC272099E97B00B6F69F /* BlueKMView.m in Sources */,
 				0AC1EDA1208B3476001EEFE4 /* BlueKeyboardManager.m in Sources */,
 				0AC1ED8C208B312A001EEFE4 /* ViewController.m in Sources */,
 				0AC1ED97208B312B001EEFE4 /* main.m in Sources */,
