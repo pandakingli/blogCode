@@ -13,7 +13,7 @@
 @class BlueKeyboardCell;
 
 @interface BlueKeyboardModel : NSObject
-
+-(NSString*)keyboardName;
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView;
 

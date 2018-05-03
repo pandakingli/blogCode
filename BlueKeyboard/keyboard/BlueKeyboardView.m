@@ -72,9 +72,10 @@
     h = IS_BLUE_IPHONE_X?kValue(10+3+43+3+34):kValue(10+3+43+3);
     CGRect r_rect = (CGRect){x,y,w,h};
     self.frame = r_rect;
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor byHexString:@"#DCDCDC"];
     [self addSubview:self.kHeaderView];
     [self addSubview:self.kCView];
+    self.kNameLabel.text = [[self getCurrentKeyboard] keyboardName];
 }
 
 -(NSMutableArray<BlueKeyboardModel*>*)keyboardsArray
@@ -210,7 +211,7 @@
         _kCView.pagingEnabled = YES;
         _kCView.decelerationRate = 0;
         _kCView.showsHorizontalScrollIndicator = NO;
-        _kCView.backgroundColor = [UIColor orangeColor];
+        _kCView.backgroundColor = [UIColor byHexString:@"#DCDCDC"];
         _kCView.delaysContentTouches = false;
         _kCView.clipsToBounds = NO;
         

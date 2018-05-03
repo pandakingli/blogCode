@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BlueKeyboardConst.h"
+#import "BlueButtonModel.h"
 
 @interface BlueKMView : UIView
+
+@property(nonatomic,strong) BlueButtonModel *btnModel;
 
 @end

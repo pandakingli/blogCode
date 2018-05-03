@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5F8D22209AB502009F22EC /* BlueButtonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F8D21209AB502009F22EC /* BlueButtonModel.m */; };
+		0A5F8D27209B0937009F22EC /* UIColor+SmartHexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F8D24209B0937009F22EC /* UIColor+SmartHexColor.m */; };
 		0AC12E2720954AD90043D9CA /* BlueKeyboardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC12E2620954AD90043D9CA /* BlueKeyboardModel.m */; };
 		0AC1ED89208B312A001EEFE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1ED88208B312A001EEFE4 /* AppDelegate.m */; };
 		0AC1ED8C208B312A001EEFE4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1ED8B208B312A001EEFE4 /* ViewController.m */; };
@@ -23,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A5F8D20209AB502009F22EC /* BlueButtonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueButtonModel.h; sourceTree = "<group>"; };
+		0A5F8D21209AB502009F22EC /* BlueButtonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueButtonModel.m; sourceTree = "<group>"; };
+		0A5F8D24209B0937009F22EC /* UIColor+SmartHexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SmartHexColor.m"; sourceTree = "<group>"; };
+		0A5F8D25209B0937009F22EC /* SHColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHColor.h; sourceTree = "<group>"; };
+		0A5F8D26209B0937009F22EC /* UIColor+SmartHexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SmartHexColor.h"; sourceTree = "<group>"; };
 		0AC12E2520954AD90043D9CA /* BlueKeyboardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueKeyboardModel.h; sourceTree = "<group>"; };
 		0AC12E2620954AD90043D9CA /* BlueKeyboardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueKeyboardModel.m; sourceTree = "<group>"; };
 		0AC1ED84208B312A001EEFE4 /* BlueKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +66,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A5F8D23209B0937009F22EC /* SHColor */ = {
+			isa = PBXGroup;
+			children = (
+				0A5F8D25209B0937009F22EC /* SHColor.h */,
+				0A5F8D24209B0937009F22EC /* UIColor+SmartHexColor.m */,
+				0A5F8D26209B0937009F22EC /* UIColor+SmartHexColor.h */,
+			);
+			path = SHColor;
+			sourceTree = "<group>";
+		};
 		0AC1ED7B208B312A001EEFE4 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +95,7 @@
 		0AC1ED86208B312A001EEFE4 /* BlueKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				0A5F8D23209B0937009F22EC /* SHColor */,
 				0AC1ED9D208B3131001EEFE4 /* keyboard */,
 				0AC1ED87208B312A001EEFE4 /* AppDelegate.h */,
 				0AC1ED88208B312A001EEFE4 /* AppDelegate.m */,
@@ -107,6 +125,8 @@
 				0AC12E2620954AD90043D9CA /* BlueKeyboardModel.m */,
 				0ADAEC252099E97B00B6F69F /* BlueKMView.h */,
 				0ADAEC262099E97B00B6F69F /* BlueKMView.m */,
+				0A5F8D20209AB502009F22EC /* BlueButtonModel.h */,
+				0A5F8D21209AB502009F22EC /* BlueButtonModel.m */,
 			);
 			path = keyboard;
 			sourceTree = "<group>";
@@ -193,12 +213,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC1EDA7208B37FF001EEFE4 /* BlueKeyboardCell.m in Sources */,
+				0A5F8D27209B0937009F22EC /* UIColor+SmartHexColor.m in Sources */,
 				0AC1EDA4208B34FD001EEFE4 /* BlueKeyboardView.m in Sources */,
 				0ADAEC272099E97B00B6F69F /* BlueKMView.m in Sources */,
 				0AC1EDA1208B3476001EEFE4 /* BlueKeyboardManager.m in Sources */,
 				0AC1ED8C208B312A001EEFE4 /* ViewController.m in Sources */,
 				0AC1ED97208B312B001EEFE4 /* main.m in Sources */,
 				0AC1ED89208B312A001EEFE4 /* AppDelegate.m in Sources */,
+				0A5F8D22209AB502009F22EC /* BlueButtonModel.m in Sources */,
 				0AC12E2720954AD90043D9CA /* BlueKeyboardModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

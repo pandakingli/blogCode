@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BlueKMView.h"
 @interface BlueKeyboardCell : UICollectionViewCell
-
+@property(nonatomic,strong) BlueKMView *carryView;
 @end

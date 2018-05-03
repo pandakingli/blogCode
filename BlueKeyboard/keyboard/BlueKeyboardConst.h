@@ -9,6 +9,7 @@
 #ifndef BlueKeyboardConst_h
 #define BlueKeyboardConst_h
 
+#import "SHColor.h"
 
 #define kBLUE_SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define kBLUEL_SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
@@ -27,12 +28,7 @@ CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].si
 #define kDSLCarKeyBoardControllorProvinceArr @[@10,@10,@10,@7]
 #define kDSLCarKeyBoardControllorABC123Arr   @[@10,@10,@10,@9]
 
-//ABC123
-#define kABC123Row1 @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"]
-#define kABC123Row2 @[@"Q",@"W",@"E",@"R",@"T",@"Y",@"U",@"I",@"O",@"P"]
-#define kABC123Row3 @[@".",@"A",@"S",@"D",@"F",@"G",@"H",@"J",@"K",@"L"]
-#define kABC123Row4 @[@"简称",@"Z",@"X",@"C",@"V",@"B",@"N",@"M",@"Del"]
-#define kABC123All @[kABC123Row1,kABC123Row2,kABC123Row3,kABC123Row4]
+
 //省市简称
 #define kProvinceRow1 @[@"京",@"津",@"渝",@"沪",@"冀",@"晋",@"辽",@"吉",@"黑",@"苏"]
 #define kProvinceRow2 @[@"浙",@"皖",@"闽",@"赣",@"鲁",@"豫",@"鄂",@"湘",@"粤",@"琼"]
