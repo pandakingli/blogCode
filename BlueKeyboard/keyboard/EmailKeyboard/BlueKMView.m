@@ -7,6 +7,7 @@
 //
 
 #import "BlueKMView.h"
+#import "BlueKeyboardModel.h"
 
 @interface BlueKMView()
 
@@ -82,9 +83,18 @@
     if (!_clickControl)
     {
         _clickControl = [[UIControl alloc]init];
+        [_clickControl addTarget:self action:@selector(didclick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _clickControl;
+}
+
+-(void)didclick
+{
+    if (self.kModel)
+    {
+        [self.kModel didClickWithBtnModel:self.btnModel];
+    }
 }
 
 -(void)setBtnModel:(BlueButtonModel *)btnModel

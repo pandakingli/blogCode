@@ -10,5 +10,5 @@
 #import "BlueKeyboardConst.h"
 
 @interface BlueKeyboardView : UIView
-
+@property (nonatomic,copy)BlueKeyboardCallBackBlcok callBackBlock;
 @end

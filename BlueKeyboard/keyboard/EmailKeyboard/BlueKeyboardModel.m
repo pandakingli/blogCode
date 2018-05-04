@@ -10,9 +10,10 @@
 #import "BlueKeyboardCell.h"
 #import "BlueKMView.h"
 #import "BlueButtonModel.h"
-#import "BlueKMView.h"
+#import "BlueKeyboardView.h"
+#import "BlueButtonModel.h"
 
-
+//#define kFormatDic(t,)  @{}
 @interface BlueKeyboardModel()
 @property(nonatomic,strong) NSArray *btnModelArray;
 @end
@@ -22,14 +23,15 @@
 -(NSArray*)getDataArray
 {
     //@{@"t":@"0",@"ty":@0}
-    NSSelectorFromString(<#NSString * _Nonnull aSelectorName#>)
+   // NSSelectorFromString(<#NSString * _Nonnull aSelectorName#>)
     NSArray *array2d = @[
-                         @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"],
+                         @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"0"],
                          @[@"Q",@"W",@"E",@"R",@"T",@"Y",@"U",@"I",@"O",@"P"],
                          @[@">",@"A",@"S",@"D",@"F",@"G",@"H",@"J",@"K",@"L"],
                          @[@">",@"Z",@"X",@"C",@"V",@"B",@"N",@"M",@"Del"],
                          @[@">",@"Z",@"X",@"C",@"V",@"B",@"N",@"M",@"Del"],
                          ];
+    
     
     return array2d;
     
@@ -64,6 +66,7 @@
     if (!cell.carryView)
     {
         BlueKMView* kView = [[BlueKMView alloc]initWithFrame:cell.contentView.bounds];
+        kView.kModel = self;
         [kView setBtnModel:model];
         cell.carryView = kView;
         [cell.contentView addSubview:cell.carryView];
@@ -155,5 +158,13 @@
 -(NSString*)keyboardName
 {
     return @"邮箱输入键盘";
+}
+
+-(void)didClickWithBtnModel:(BlueButtonModel*)bModel
+{
+    if (self.keyView.callBackBlock)
+    {
+        self.keyView.callBackBlock(bModel.showText,bModel.btnType);
+    }
 }
 @end

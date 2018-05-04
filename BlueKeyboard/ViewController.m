@@ -29,6 +29,28 @@
     [self.view addSubview:self.textField];
     BlueKeyboardView *blueView = [[BlueKeyboardView alloc]init];
     self.textField.inputView = blueView;
+    
+    [blueView setCallBackBlock:^(NSString *text, BlueKeyButtonType btnType) {
+        
+        if (btnType == BlueKeyButtonType_Delete)
+        {
+            if (self.textField.text.length > 0)
+            {
+                self.textField.text = [self.textField.text substringToIndex: self.textField.text.length - 1];
+            }
+            
+        }
+        
+        if (btnType == BlueKeyButtonType_Normal)
+        {
+            NSString *result = [NSString stringWithFormat: @"%@%@",self.textField.text, text];
+            self.textField.text = result;
+        }
+        
+    }];
+    
+    
+    
 }
 
 -(UITextField*)textField

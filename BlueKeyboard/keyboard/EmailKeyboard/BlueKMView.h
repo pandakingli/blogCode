@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BlueKeyboardConst.h"
 #import "BlueButtonModel.h"
-
+@class BlueKeyboardModel;
 @interface BlueKMView : UIView
 
 @property(nonatomic,strong) BlueButtonModel *btnModel;
-
+@property(nonatomic,strong) BlueKeyboardModel *kModel;
 @end

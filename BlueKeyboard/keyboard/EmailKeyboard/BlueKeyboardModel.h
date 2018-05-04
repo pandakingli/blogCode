@@ -11,8 +11,13 @@
 #import "BlueKeyboardConst.h"
 
 @class BlueKeyboardCell;
+@class BlueKeyboardView;
+@class BlueButtonModel;
 
 @interface BlueKeyboardModel : NSObject
+
+@property(nonatomic,weak) BlueKeyboardView *keyView;
+
 -(NSString*)keyboardName;
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView;
@@ -27,5 +32,5 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section;
 
-
+-(void)didClickWithBtnModel:(BlueButtonModel*)bModel;
 @end

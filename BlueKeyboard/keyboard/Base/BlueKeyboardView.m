@@ -10,12 +10,13 @@
 #import "BlueKeyboardCell.h"
 #import "BlueKeyboardManager.h"
 #import "BlueKeyboardModel.h"
+#import "BlueKeyboardConst.h"
 
 @interface BlueKeyboardView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic,assign) BlueKeyboardType keyboardType;//键盘类型
 @property(nonatomic,strong) UICollectionView *kCView;//键盘按钮列表
-@property (nonatomic,copy)  BlueKeyboardCallBackBlcok callBackBlock;//回调
+
 
 @property(nonatomic,assign) NSInteger currentKeyboardIndex;//当前键盘
 @property(nonatomic,strong) NSMutableArray<BlueKeyboardModel*> *keyboardsArray;//键盘数据数组
@@ -59,6 +60,7 @@
 -(void)setupData
 {
     BlueKeyboardModel *model = [[BlueKeyboardModel alloc]init];
+    model.keyView = self;
     [self.keyboardsArray addObject:model];
 }
 
