@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AD9432D20C938E400D1291C /* UIImageView+rrrrrrrr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9432C20C938E400D1291C /* UIImageView+rrrrrrrr.m */; };
+		0AD9433020C93B6900D1291C /* UIImage+ttet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9432F20C93B6900D1291C /* UIImage+ttet.m */; };
 		E3E6F907891D61240C6431ED /* Pods_YogaKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D466F42E6957B56A72422420 /* Pods_YogaKitDemo.framework */; };
 		E62DF9E52072732E00D4CC1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9E42072732E00D4CC1F /* AppDelegate.m */; };
 		E62DF9E82072732E00D4CC1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9E72072732E00D4CC1F /* ViewController.m */; };
@@ -17,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AD9432B20C938E400D1291C /* UIImageView+rrrrrrrr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+rrrrrrrr.h"; sourceTree = "<group>"; };
+		0AD9432C20C938E400D1291C /* UIImageView+rrrrrrrr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+rrrrrrrr.m"; sourceTree = "<group>"; };
+		0AD9432E20C93B6900D1291C /* UIImage+ttet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ttet.h"; sourceTree = "<group>"; };
+		0AD9432F20C93B6900D1291C /* UIImage+ttet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ttet.m"; sourceTree = "<group>"; };
 		2ADDCBCE4EE00B01A9745EC0 /* Pods-YogaKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YogaKitDemo/Pods-YogaKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		69E2C3D4A5FF1E8C3DC7966B /* Pods-YogaKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YogaKitDemo/Pods-YogaKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D466F42E6957B56A72422420 /* Pods_YogaKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +84,10 @@
 				E62DF9E42072732E00D4CC1F /* AppDelegate.m */,
 				E62DF9E62072732E00D4CC1F /* ViewController.h */,
 				E62DF9E72072732E00D4CC1F /* ViewController.m */,
+				0AD9432B20C938E400D1291C /* UIImageView+rrrrrrrr.h */,
+				0AD9432C20C938E400D1291C /* UIImageView+rrrrrrrr.m */,
+				0AD9432E20C93B6900D1291C /* UIImage+ttet.h */,
+				0AD9432F20C93B6900D1291C /* UIImage+ttet.m */,
 				E62DF9E92072732E00D4CC1F /* Main.storyboard */,
 				E62DF9EC2072732E00D4CC1F /* Assets.xcassets */,
 				E62DF9EE2072732E00D4CC1F /* LaunchScreen.storyboard */,
@@ -171,13 +181,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YogaKitDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		634301AA4109CE7C1C84C432 /* [CP] Embed Pods Frameworks */ = {
@@ -186,9 +199,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YogaKitDemo/Pods-YogaKitDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Yoga/yoga.framework",
+				"${BUILT_PRODUCTS_DIR}/YogaKit/YogaKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YogaKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -217,7 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD9432D20C938E400D1291C /* UIImageView+rrrrrrrr.m in Sources */,
 				E62DF9E82072732E00D4CC1F /* ViewController.m in Sources */,
+				0AD9433020C93B6900D1291C /* UIImage+ttet.m in Sources */,
 				E62DF9F32072732E00D4CC1F /* main.m in Sources */,
 				E62DF9E52072732E00D4CC1F /* AppDelegate.m in Sources */,
 			);
@@ -357,6 +379,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S9HRLGS74P;
 				INFOPLIST_FILE = YogaKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = biubiublue.YogaKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -372,6 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S9HRLGS74P;
 				INFOPLIST_FILE = YogaKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = biubiublue.YogaKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
