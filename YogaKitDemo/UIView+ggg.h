@@ -1,14 +1,14 @@
 //
-//  UIImageView+rrrrrrrr.h
+//  UIView+ggg.h
 //  YogaKitDemo
 //
-//  Created by biubiu on 2018/6/7.
+//  Created by biubiu on 2018/6/8.
 //  Copyright © 2018年 biubiublue. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (rrrrrrrr)
+@interface UIView (ggg)
 /**
  *  圆形
  */

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AD9432D20C938E400D1291C /* UIImageView+rrrrrrrr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9432C20C938E400D1291C /* UIImageView+rrrrrrrr.m */; };
 		0AD9433020C93B6900D1291C /* UIImage+ttet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9432F20C93B6900D1291C /* UIImage+ttet.m */; };
+		0AD9433320CA6AE100D1291C /* UIView+ggg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9433220CA6AE100D1291C /* UIView+ggg.m */; };
 		E3E6F907891D61240C6431ED /* Pods_YogaKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D466F42E6957B56A72422420 /* Pods_YogaKitDemo.framework */; };
 		E62DF9E52072732E00D4CC1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9E42072732E00D4CC1F /* AppDelegate.m */; };
 		E62DF9E82072732E00D4CC1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9E72072732E00D4CC1F /* ViewController.m */; };
@@ -23,6 +24,8 @@
 		0AD9432C20C938E400D1291C /* UIImageView+rrrrrrrr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+rrrrrrrr.m"; sourceTree = "<group>"; };
 		0AD9432E20C93B6900D1291C /* UIImage+ttet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ttet.h"; sourceTree = "<group>"; };
 		0AD9432F20C93B6900D1291C /* UIImage+ttet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ttet.m"; sourceTree = "<group>"; };
+		0AD9433120CA6AE100D1291C /* UIView+ggg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ggg.h"; sourceTree = "<group>"; };
+		0AD9433220CA6AE100D1291C /* UIView+ggg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ggg.m"; sourceTree = "<group>"; };
 		2ADDCBCE4EE00B01A9745EC0 /* Pods-YogaKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YogaKitDemo/Pods-YogaKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		69E2C3D4A5FF1E8C3DC7966B /* Pods-YogaKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YogaKitDemo/Pods-YogaKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D466F42E6957B56A72422420 /* Pods_YogaKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +91,8 @@
 				0AD9432C20C938E400D1291C /* UIImageView+rrrrrrrr.m */,
 				0AD9432E20C93B6900D1291C /* UIImage+ttet.h */,
 				0AD9432F20C93B6900D1291C /* UIImage+ttet.m */,
+				0AD9433120CA6AE100D1291C /* UIView+ggg.h */,
+				0AD9433220CA6AE100D1291C /* UIView+ggg.m */,
 				E62DF9E92072732E00D4CC1F /* Main.storyboard */,
 				E62DF9EC2072732E00D4CC1F /* Assets.xcassets */,
 				E62DF9EE2072732E00D4CC1F /* LaunchScreen.storyboard */,
@@ -241,6 +246,7 @@
 				E62DF9E82072732E00D4CC1F /* ViewController.m in Sources */,
 				0AD9433020C93B6900D1291C /* UIImage+ttet.m in Sources */,
 				E62DF9F32072732E00D4CC1F /* main.m in Sources */,
+				0AD9433320CA6AE100D1291C /* UIView+ggg.m in Sources */,
 				E62DF9E52072732E00D4CC1F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

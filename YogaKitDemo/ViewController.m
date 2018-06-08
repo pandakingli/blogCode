@@ -11,9 +11,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImage+ttet.h"
 #import "UIImageView+rrrrrrrr.h"
-
+#import "UIView+ggg.h"
+#define kDSL_SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define kDSL_SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
 @interface ViewController ()
-
+@property(nonatomic,strong) UIView *backView;
 @end
 
 @implementation ViewController
@@ -23,30 +25,44 @@
     
     
     self.view.backgroundColor = [UIColor grayColor];
+    self.backView = [[UIView alloc]init];
+    CGFloat x,y,w,h;
+    x = 0;
+    y = 100;
+    w = kDSL_SCREEN_WIDTH;
+    h = 100;
+    CGRect R_rect = (CGRect){x,y,w,h};
+    self.backView.frame = R_rect;
+    
+    
+    
+    
+    
     
     // 测试图片 url
     NSString *testUrl = @"http://bos.pgzs.com/itunesimg/31/351091731/c2dcc1bc41fa08a3a7ab3877e878b7a1_512x512bb.114x114-75.jpg";
     
     float viewWidth = 57;
     
-    /*** 要设置圆形的 imageview */
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.frame = CGRectMake(70, 100, viewWidth, viewWidth);
-    [imageView xf_setCircleHeaderWithUrl:testUrl placeholder:@"icon"];
-    [self.view addSubview:imageView];
-    
+//    /*** 要设置圆形的 imageview */
+//    UIImageView *imageView = [[UIImageView alloc] init];
+//    imageView.frame = CGRectMake(70, 100, viewWidth, viewWidth);
+//    [imageView xf_setCircleHeaderWithUrl:testUrl placeholder:@"icon"];
+//    [self.view addSubview:imageView];
+//
     /*** 要设置圆角型的 imageview */
-    UIImageView *imageViewTwo = [[UIImageView alloc] init];
-    imageViewTwo.frame = CGRectMake(150, 100, viewWidth, viewWidth);
-    [imageViewTwo xf_setRectHeaderWithUrl:testUrl placeholder:@"icon"];
+    UIView *imageViewTwo = [[UIView alloc] init];
+    imageViewTwo.backgroundColor = [UIColor whiteColor];
+    imageViewTwo.frame = CGRectMake(150, 100, viewWidth*2, viewWidth);
+    [imageViewTwo xf_setPoooingxing4SideHeaderWithUrl:testUrl placeholder:@"icon"];
     [self.view addSubview:imageViewTwo];
     
     /*** 要设置六边形的 imageview */
-    UIImageView *imageViewThree = [[UIImageView alloc] init];
-    imageViewThree.frame = CGRectMake(230, 100, viewWidth, viewWidth);
-    [imageViewThree xf_setSixSideHeaderWithUrl:testUrl placeholder:@"icon"];
-    [self.view addSubview:imageViewThree];
-    
+//    UIImageView *imageViewThree = [[UIImageView alloc] init];
+//    imageViewThree.frame = CGRectMake(230, 100, viewWidth, viewWidth);
+//    [imageViewThree xf_setSixSideHeaderWithUrl:testUrl placeholder:@"icon"];
+//    [self.view addSubview:imageViewThree];
+//    
     
 }
 
